@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 class ATMOperation(ABC):
     @abstractmethod
     def execute(self):
-        pass
+        pass  # pragma: no cover
 
 class Account:
     def __init__(self, account_number, balance, pin):
@@ -108,22 +108,22 @@ class ATMComposite(ATMOperation):
             operation.execute()
 
 # Example usage
-if __name__ == "__main__":
-    account = Account(account_number="1234567890", balance=1000, pin="1234")
-
-    auth = Authentication(account, pin="1234")
-    balance_inquiry = BalanceInquiry(account)
-    withdrawal = Withdrawal(account, 200)
-    deposit = Deposit(account, 500)
-    pin_change = PinChange(account, old_pin="1234", new_pin="5678")
-    print_receipt = PrintReceipt(transaction_details="Transaction details here")
-
-    atm_composite = ATMComposite()
-    atm_composite.add_operation(auth)
-    atm_composite.add_operation(balance_inquiry)
-    atm_composite.add_operation(withdrawal)
-    atm_composite.add_operation(deposit)
-    atm_composite.add_operation(pin_change)
-    atm_composite.add_operation(print_receipt)
-
-    atm_composite.execute()
+# if __name__ == "__main__":
+#     account = Account(account_number="1234567890", balance=1000, pin="1234")
+#
+#     auth = Authentication(account, pin="1234")
+#     balance_inquiry = BalanceInquiry(account)
+#     withdrawal = Withdrawal(account, 200)
+#     deposit = Deposit(account, 500)
+#     pin_change = PinChange(account, old_pin="1234", new_pin="5678")
+#     print_receipt = PrintReceipt(transaction_details="Transaction details here")
+#
+#     atm_composite = ATMComposite()
+#     atm_composite.add_operation(auth)
+#     atm_composite.add_operation(balance_inquiry)
+#     atm_composite.add_operation(withdrawal)
+#     atm_composite.add_operation(deposit)
+#     atm_composite.add_operation(pin_change)
+#     atm_composite.add_operation(print_receipt)
+#
+#     atm_composite.execute()

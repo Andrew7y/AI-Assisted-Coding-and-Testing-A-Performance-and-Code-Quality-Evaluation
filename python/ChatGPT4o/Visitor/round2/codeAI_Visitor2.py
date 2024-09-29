@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 class ATMOperation(ABC):
     @abstractmethod
     def accept(self, visitor):
-        pass
+        pass  # pragma: no cover
 
 # Concrete Elements representing different ATM operations
 class Authentication(ATMOperation):
@@ -60,27 +60,27 @@ class PrintReceipt(ATMOperation):
 class ATMVisitor(ABC):
     @abstractmethod
     def visit_authentication(self, authentication):
-        pass
+        pass  # pragma: no cover
 
     @abstractmethod
     def visit_check_balance(self, check_balance):
-        pass
+        pass  # pragma: no cover
 
     @abstractmethod
     def visit_withdraw_money(self, withdraw_money):
-        pass
+        pass  # pragma: no cover
 
     @abstractmethod
     def visit_deposit_money(self, deposit_money):
-        pass
+        pass  # pragma: no cover
 
     @abstractmethod
     def visit_change_pin(self, change_pin):
-        pass
+        pass  # pragma: no cover
 
     @abstractmethod
     def visit_print_receipt(self, print_receipt):
-        pass
+        pass  # pragma: no cover
 
 # Concrete Visitor implementing the behavior for each operation
 class ATMVisitorImplementation(ATMVisitor):
@@ -136,23 +136,23 @@ class ATMVisitorImplementation(ATMVisitor):
         print("Printing receipt...")
         print(f"Receipt Details: {print_receipt.transaction_details}")
 
-# Usage Example
-if __name__ == "__main__":
-    # Create different ATM operations
-    authentication = Authentication("1234567890", "1234")
-    check_balance = CheckBalance(5000)
-    withdraw_money = WithdrawMoney(5000, 300)
-    deposit_money = DepositMoney(5000, 200)
-    change_pin = ChangePin("1234", "5678")
-    print_receipt = PrintReceipt("Withdrawal: $300 | Remaining Balance: $4700")
-
-    # Visitor instance
-    atm_visitor = ATMVisitorImplementation()
-
-    # Perform operations
-    authentication.accept(atm_visitor)
-    check_balance.accept(atm_visitor)
-    withdraw_money.accept(atm_visitor)
-    deposit_money.accept(atm_visitor)
-    change_pin.accept(atm_visitor)
-    print_receipt.accept(atm_visitor)
+# # Usage Example
+# if __name__ == "__main__":
+#     # Create different ATM operations
+#     authentication = Authentication("1234567890", "1234")
+#     check_balance = CheckBalance(5000)
+#     withdraw_money = WithdrawMoney(5000, 300)
+#     deposit_money = DepositMoney(5000, 200)
+#     change_pin = ChangePin("1234", "5678")
+#     print_receipt = PrintReceipt("Withdrawal: $300 | Remaining Balance: $4700")
+#
+#     # Visitor instance
+#     atm_visitor = ATMVisitorImplementation()
+#
+#     # Perform operations
+#     authentication.accept(atm_visitor)
+#     check_balance.accept(atm_visitor)
+#     withdraw_money.accept(atm_visitor)
+#     deposit_money.accept(atm_visitor)
+#     change_pin.accept(atm_visitor)
+#     print_receipt.accept(atm_visitor)

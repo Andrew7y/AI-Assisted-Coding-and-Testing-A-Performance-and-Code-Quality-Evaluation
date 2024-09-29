@@ -4,27 +4,27 @@ from abc import ABC, abstractmethod
 class ATMVisitor(ABC):
     @abstractmethod
     def visit_authentication(self, auth):
-        pass
+        pass  # pragma: no cover
 
     @abstractmethod
     def visit_balance_inquiry(self, balance_inquiry):
-        pass
+        pass # pragma: no cover
 
     @abstractmethod
     def visit_withdrawal(self, withdrawal):
-        pass
+        pass  # pragma: no cover
 
     @abstractmethod
     def visit_deposit(self, deposit):
-        pass
+        pass  # pragma: no cover
 
     @abstractmethod
     def visit_pin_change(self, pin_change):
-        pass
+        pass  # pragma: no cover
 
     @abstractmethod
     def visit_print_receipt(self, print_receipt):
-        pass
+        pass  # pragma: no cover
 
 # Concrete Visitor
 class ATMOperation(ATMVisitor):
@@ -50,7 +50,7 @@ class ATMOperation(ATMVisitor):
 class ATMFeature(ABC):
     @abstractmethod
     def accept(self, visitor: ATMVisitor):
-        pass
+        pass  # pragma: no cover
 
 # Concrete Elements
 class Authentication(ATMFeature):
@@ -139,27 +139,27 @@ class PrintReceipt(ATMFeature):
     def accept(self, visitor: ATMVisitor):
         visitor.visit_print_receipt(self)
 
-# Client code
-def atm_system():
-    balance = 500.0  # Initial balance
-    atm_operation = ATMOperation()
-
-    # ATM features
-    auth = Authentication()
-    balance_inquiry = BalanceInquiry(balance)
-    withdrawal = Withdrawal(balance)
-    deposit = Deposit(balance)
-    pin_change = PinChange()
-    print_receipt = PrintReceipt()
-
-    # Simulate ATM operations
-    auth.accept(atm_operation)
-    if auth.pin_attempts < auth.max_attempts:
-        balance_inquiry.accept(atm_operation)
-        withdrawal.accept(atm_operation)
-        deposit.accept(atm_operation)
-        pin_change.accept(atm_operation)
-        print_receipt.accept(atm_operation)
-
-if __name__ == "__main__":
-    atm_system()
+# # Client code
+# def atm_system():
+#     balance = 500.0  # Initial balance
+#     atm_operation = ATMOperation()
+#
+#     # ATM features
+#     auth = Authentication()
+#     balance_inquiry = BalanceInquiry(balance)
+#     withdrawal = Withdrawal(balance)
+#     deposit = Deposit(balance)
+#     pin_change = PinChange()
+#     print_receipt = PrintReceipt()
+#
+#     # Simulate ATM operations
+#     auth.accept(atm_operation)
+#     if auth.pin_attempts < auth.max_attempts:
+#         balance_inquiry.accept(atm_operation)
+#         withdrawal.accept(atm_operation)
+#         deposit.accept(atm_operation)
+#         pin_change.accept(atm_operation)
+#         print_receipt.accept(atm_operation)
+#
+# if __name__ == "__main__":
+#     atm_system()

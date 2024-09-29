@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 class ATMOperation(ABC):
     @abstractmethod
     def execute(self):
-        pass
+        pass  # pragma: no cover
 
 # Leaf classes
 class Authentication(ATMOperation):

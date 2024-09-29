@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 class ATMOperation(ABC):
     @abstractmethod
     def execute(self):
-        pass
+        pass  # pragma: no cover
 
 # Leaf classes
 class Authentication(ATMOperation):
@@ -105,23 +105,23 @@ class Account:
     def change_pin(self, new_pin):
         self.pin = new_pin
 
-# Initialize account and operations
-account = Account(balance=1000, pin="1234")
-auth = Authentication(card_number="1234567890", pin="1234")
-balance_inquiry = BalanceInquiry(account)
-withdrawal = Withdrawal(account, 200)
-deposit = Deposit(account, 500)
-pin_change = PinChange(account, old_pin="1234", new_pin="5678")
-print_receipt = PrintReceipt(transaction_details="Transaction details here")
-
-# Create composite and add operations
-atm_composite = ATMComposite()
-atm_composite.add_operation(auth)
-atm_composite.add_operation(balance_inquiry)
-atm_composite.add_operation(withdrawal)
-atm_composite.add_operation(deposit)
-atm_composite.add_operation(pin_change)
-atm_composite.add_operation(print_receipt)
-
-# Execute all operations
-atm_composite.execute()
+# # Initialize account and operations
+# account = Account(balance=1000, pin="1234")
+# auth = Authentication(card_number="1234567890", pin="1234")
+# balance_inquiry = BalanceInquiry(account)
+# withdrawal = Withdrawal(account, 200)
+# deposit = Deposit(account, 500)
+# pin_change = PinChange(account, old_pin="1234", new_pin="5678")
+# print_receipt = PrintReceipt(transaction_details="Transaction details here")
+#
+# # Create composite and add operations
+# atm_composite = ATMComposite()
+# atm_composite.add_operation(auth)
+# atm_composite.add_operation(balance_inquiry)
+# atm_composite.add_operation(withdrawal)
+# atm_composite.add_operation(deposit)
+# atm_composite.add_operation(pin_change)
+# atm_composite.add_operation(print_receipt)
+#
+# # Execute all operations
+# atm_composite.execute()

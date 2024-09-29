@@ -4,15 +4,15 @@ from abc import ABC, abstractmethod
 class Visitor(ABC):
     @abstractmethod
     def visit_atm(self, atm):
-        pass
+        pass # pragma: no cover
 
     @abstractmethod
     def visit_account(self, account):
-        pass
+        pass # pragma: no cover
 
     @abstractmethod
     def visit_transaction(self, transaction):
-        pass
+        pass # pragma: no cover
 
 # Elements (Visitable Classes)
 class ATM:
@@ -64,7 +64,7 @@ class AuthenticationVisitor(Visitor):
                 print("Incorrect PIN. Try again.")
 
     def visit_transaction(self, transaction):
-        pass
+        pass # pragma: no cover
 
 class BalanceInquiryVisitor(Visitor):
     def visit_atm(self, atm):
@@ -75,7 +75,7 @@ class BalanceInquiryVisitor(Visitor):
         print(f"Your current balance is: {account.balance}.")
 
     def visit_transaction(self, transaction):
-        pass
+        pass # pragma: no cover
 
 class WithdrawalVisitor(Visitor):
     def __init__(self, amount):
@@ -94,7 +94,7 @@ class WithdrawalVisitor(Visitor):
             print("Insufficient funds for withdrawal.")
 
     def visit_transaction(self, transaction):
-        pass
+        pass # pragma: no cover
 
 class DepositVisitor(Visitor):
     def __init__(self, amount):
@@ -109,7 +109,7 @@ class DepositVisitor(Visitor):
         print(f"Deposit successful. New balance: {account.balance}.")
 
     def visit_transaction(self, transaction):
-        pass
+        pass # pragma: no cover
 
 class PinChangeVisitor(Visitor):
     def __init__(self, old_pin, new_pin, confirm_new_pin):
@@ -132,7 +132,7 @@ class PinChangeVisitor(Visitor):
             print("Old PIN is incorrect. Try again.")
 
     def visit_transaction(self, transaction):
-        pass
+        pass # pragma: no cover
 
 class PrintReceiptVisitor(Visitor):
     def visit_atm(self, atm):
@@ -145,34 +145,34 @@ class PrintReceiptVisitor(Visitor):
 
     def visit_transaction(self, transaction):
         print(f"Transaction: {transaction.transaction_type}, Amount: {transaction.amount}")
-
-# Example usage
-if __name__ == "__main__":
-    # Setup
-    account = Account(pin="1234", balance=5000)
-    atm = ATM()
-
-    # Insert card and authenticate
-    atm.insert_card(account)
-    auth_visitor = AuthenticationVisitor(pin="1234")
-    atm.accept(auth_visitor)
-
-    # Balance inquiry
-    balance_visitor = BalanceInquiryVisitor()
-    atm.accept(balance_visitor)
-
-    # Withdraw money
-    withdrawal_visitor = WithdrawalVisitor(amount=1500)
-    atm.accept(withdrawal_visitor)
-
-    # Deposit money
-    deposit_visitor = DepositVisitor(amount=2000)
-    atm.accept(deposit_visitor)
-
-    # Change PIN
-    pin_change_visitor = PinChangeVisitor(old_pin="1234", new_pin="5678", confirm_new_pin="5678")
-    atm.accept(pin_change_visitor)
-
-    # Print receipt
-    print_receipt_visitor = PrintReceiptVisitor()
-    atm.accept(print_receipt_visitor)
+#
+# # Example usage
+# if __name__ == "__main__":
+#     # Setup
+#     account = Account(pin="1234", balance=5000)
+#     atm = ATM()
+#
+#     # Insert card and authenticate
+#     atm.insert_card(account)
+#     auth_visitor = AuthenticationVisitor(pin="1234")
+#     atm.accept(auth_visitor)
+#
+#     # Balance inquiry
+#     balance_visitor = BalanceInquiryVisitor()
+#     atm.accept(balance_visitor)
+#
+#     # Withdraw money
+#     withdrawal_visitor = WithdrawalVisitor(amount=1500)
+#     atm.accept(withdrawal_visitor)
+#
+#     # Deposit money
+#     deposit_visitor = DepositVisitor(amount=2000)
+#     atm.accept(deposit_visitor)
+#
+#     # Change PIN
+#     pin_change_visitor = PinChangeVisitor(old_pin="1234", new_pin="5678", confirm_new_pin="5678")
+#     atm.accept(pin_change_visitor)
+#
+#     # Print receipt
+#     print_receipt_visitor = PrintReceiptVisitor()
+#     atm.accept(print_receipt_visitor)

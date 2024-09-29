@@ -5,7 +5,7 @@ from datetime import datetime
 class ATMComponent(ABC):
     @abstractmethod
     def execute(self):
-        pass
+        pass # pragma: no cover
 
 # Concrete class for Authentication
 class Authentication(ATMComponent):
@@ -91,23 +91,23 @@ class ATMComposite(ATMComponent):
             component.execute()
 
 # Example usage
-def main():
-    atm_operations = ATMComposite()
-
-    # Perform operations
-    atm_operations.add(Authentication("valid_card", "1234"))
-    atm_operations.add(BalanceInquiry(1000))
-    atm_operations.add(Withdrawal(1000, 200))
-    atm_operations.add(Deposit(800, 500))
-    atm_operations.add(PINChange("1234", "5678", "5678"))
-    atm_operations.add(PrintSlip({
-        'date': datetime.now().strftime('%Y-%m-%d'),
-        'time': datetime.now().strftime('%H:%M:%S'),
-        'amount': 500,
-        'balance': 1300
-    }))
-
-    atm_operations.execute()
-
-if __name__ == "__main__":
-    main()
+# def main():
+#     atm_operations = ATMComposite()
+#
+#     # Perform operations
+#     atm_operations.add(Authentication("valid_card", "1234"))
+#     atm_operations.add(BalanceInquiry(1000))
+#     atm_operations.add(Withdrawal(1000, 200))
+#     atm_operations.add(Deposit(800, 500))
+#     atm_operations.add(PINChange("1234", "5678", "5678"))
+#     atm_operations.add(PrintSlip({
+#         'date': datetime.now().strftime('%Y-%m-%d'),
+#         'time': datetime.now().strftime('%H:%M:%S'),
+#         'amount': 500,
+#         'balance': 1300
+#     }))
+#
+#     atm_operations.execute()
+#
+# if __name__ == "__main__":
+#     main()

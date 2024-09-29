@@ -1,10 +1,12 @@
-from abc import ABC, abstractmethod
+# a composite pattern example
+from abc import ABC, abstractmethod  # Abstract Base Class
+
 
 # Component Interface
 class ATMOperation(ABC):
     @abstractmethod
     def execute(self):
-        pass
+        pass  # pragma: no cover
 
 # Leaf classes
 class Authentication(ATMOperation):
@@ -95,24 +97,24 @@ class ATMComposite(ATMOperation):
         for operation in self.operations:
             operation.execute()
 
-# Client code
-def main():
-    # Example usage of the ATM system
-    balance = 5000.0  # Initial balance
-    current_pin = "1234"  # Initial PIN
-
-    atm = ATMComposite()
-
-    auth = Authentication("card123", current_pin)
-    if auth.execute():  # Proceed only if authentication is successful
-        # Adding operations based on user choices
-        atm.add_operation(BalanceInquiry(balance))
-        atm.add_operation(Withdrawal(balance))
-        atm.add_operation(Deposit(balance))
-        atm.add_operation(PinChange(current_pin))
-        atm.add_operation(PrintReceipt())
-
-        atm.execute()
-
-if __name__ == "__main__":
-    main()
+# # Client code
+# def main():
+#     # Example usage of the ATM system
+#     balance = 5000.0  # Initial balance
+#     current_pin = "1234"  # Initial PIN
+#
+#     atm = ATMComposite()
+#
+#     auth = Authentication("card123", current_pin)
+#     if auth.execute():  # Proceed only if authentication is successful
+#         # Adding operations based on user choices
+#         atm.add_operation(BalanceInquiry(balance))
+#         atm.add_operation(Withdrawal(balance))
+#         atm.add_operation(Deposit(balance))
+#         atm.add_operation(PinChange(current_pin))
+#         atm.add_operation(PrintReceipt())
+#
+#         atm.execute()
+#
+# if __name__ == "__main__":
+#     main()

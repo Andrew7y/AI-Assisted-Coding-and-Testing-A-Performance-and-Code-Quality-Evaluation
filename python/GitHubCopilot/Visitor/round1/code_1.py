@@ -1,6 +1,6 @@
 class ATMOperation:
     def accept(self, visitor):
-        pass
+        pass  # pragma: no cover
 
 class AuthenticateUser(ATMOperation):
     def __init__(self, card_number, pin):
@@ -42,22 +42,22 @@ class PrintReceipt(ATMOperation):
         
 class ATMVisitor:
     def visit_authenticate_user(self, operation):
-        pass
+        pass  # pragma: no cover
 
     def visit_check_balance(self, operation):
-        pass
+        pass    # pragma: no cover
 
     def visit_withdraw_money(self, operation):
-        pass
+        pass  # pragma: no cover
 
     def visit_deposit_money(self, operation):
-        pass
+        pass  # pragma: no cover
 
     def visit_change_pin(self, operation):
-        pass
+        pass  # pragma: no cover
 
     def visit_print_receipt(self, operation):
-        pass
+        pass  # pragma: no cover
     
 class ATM:
     def __init__(self, balance, card_number, pin):
@@ -152,18 +152,18 @@ class ATMVisitorImpl(ATMVisitor):
     def visit_print_receipt(self, operation):
         self.atm.print_receipt()
         
-if __name__ == "__main__":
-    atm = ATM(1000, "1234567890", "1234")
-    visitor = ATMVisitorImpl(atm)
-
-    operations = [
-        AuthenticateUser("1234567890", "1234"),
-        CheckBalance(),
-        WithdrawMoney(200),
-        DepositMoney(500),
-        ChangePin("1234", "5678"),
-        PrintReceipt()
-    ]
-
-    for operation in operations:
-        operation.accept(visitor)
+# if __name__ == "__main__":
+#     atm = ATM(1000, "1234567890", "1234")
+#     visitor = ATMVisitorImpl(atm)
+#
+#     operations = [
+#         AuthenticateUser("1234567890", "1234"),
+#         CheckBalance(),
+#         WithdrawMoney(200),
+#         DepositMoney(500),
+#         ChangePin("1234", "5678"),
+#         PrintReceipt()
+#     ]
+#
+#     for operation in operations:
+#         operation.accept(visitor)
