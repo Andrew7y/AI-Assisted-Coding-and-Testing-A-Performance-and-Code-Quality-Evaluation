@@ -8,5 +8,5 @@ AI-Assisted Coding and Testing: A Performance and Code Quality Evaluation
 อาจารย์ประจำวิชา
 ผศ. ดร.ชิตสุธา สุ่มเล็ก
 
-วิชา การประกันคุณภาพซอฟต์แวร์ (Software Quality Assurance) 
+วิชา การประกันคุณภาพซอฟต์แวร์ (Software Quality Assurance)
 ประจำภาคเรียนที่ 1 ปีการศึกษา 2567
