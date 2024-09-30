@@ -12,3 +12,7 @@
 >ผศ. ดร.ชิตสุธา สุ่มเล็ก
 
 #### วิชา การประกันคุณภาพซอฟต์แวร์ (Software Quality Assurance) ประจำภาคเรียนที่ 1 ปีการศึกษา 2567
+
+- [Presentation](Report/Presentation.pdf)
+- [Report](Report/FinalReportDocument.pdf)
+- [Presentation link](https://www.canva.com/design/DAGSCuKDBYI/pyibBS9HjVvQ_NHbUljofw/edit?utm_content=DAGSCuKDBYI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
